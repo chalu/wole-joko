@@ -52,13 +52,13 @@ const logr = (realm) => {
   const style = 'color:#fff;display:block';
   return {
     info: (...msgs) => {
-      console.log(`%c Enter (${realm}) %c`, `background:darkblue;${style}`, '', ...msgs);
+      console.log(`%c Wọlé Jókò (${realm}) %c`, `background:darkblue;${style}`, '', ...msgs);
     },
     error: (...msgs) => {
-      console.error(`%c Enter (${realm}) %c`, `background:darkred;${style}`, '', ...msgs);
+      console.error(`%c Wọlé Jókò (${realm}) %c`, `background:darkred;${style}`, '', ...msgs);
     },
     warn: (...msgs) => {
-      console.warn(`%c Enter (${realm}) %c`, `background:darkgoldenrod;${style}`, '', ...msgs);
+      console.warn(`%c Wọlé Jókò (${realm}) %c`, `background:darkgoldenrod;${style}`, '', ...msgs);
     }
   };
 };

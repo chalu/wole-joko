@@ -101,11 +101,11 @@ const startApp = () => {
   goingToChruch = random({ max: CAPACITY, min: 250 });
   info(`We hear ~${(goingToChruch / 1000).toFixed(1)}k people are showing up for today's event ...`);
 
-  info(`FYI, the hall has the following configuration:`);
+  info('FYI, the hall has the following configuration:');
+  /* eslint-disable no-console */
   console.table({
     CAPACITY, TOTAL_ROWS, SEATS_PER_ROW, ADMIT_PER_TIME
   });
-
 
   getAuditoriumReady().then(() => {
     info('Event Started');

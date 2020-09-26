@@ -99,25 +99,31 @@ const getAuditoriumReady = async () => {
 
 const startApp = () => {
   goingToChruch = random({ max: CAPACITY, min: 250 });
-  info(`We hear there're about ${goingToChruch} people showing up for today's event`);
+  info(`We hear ~${(goingToChruch / 1000).toFixed(1)}k people are showing up for today's event ...`);
 
-  getAuditoriumReady().then(() => {
-    info('Event Started');
-
-    const startedAt = Date.now();
-    admitPeople().then(() => {
-      const elapsedTime = (Date.now() - startedAt) / (1000 * 60);
-      info(`We got all ${admitted} seated in roughly ${elapsedTime.toFixed(2)} minutes!`);
-
-      if (admitted < CAPACITY) {
-        info(`Hopefully, ${CAPACITY - admitted} more people will be at the next event`);
-      }
-
-      if (goingToChruch >= 1) {
-        info(`Unfortunately, we had to turn away ${goingToChruch} people`);
-      }
-    });
+  info(`FYI, the hall has the following configuration:`);
+  console.table({
+    CAPACITY, TOTAL_ROWS, SEATS_PER_ROW, ADMIT_PER_TIME
   });
+
+
+  // getAuditoriumReady().then(() => {
+  //   info('Event Started');
+
+  //   const startedAt = Date.now();
+  //   admitPeople().then(() => {
+  //     const elapsedTime = (Date.now() - startedAt) / (1000 * 60);
+  //     info(`We got all ${admitted} seated in roughly ${elapsedTime.toFixed(2)} minutes!`);
+
+  //     if (admitted < CAPACITY) {
+  //       info(`Hopefully, ${CAPACITY - admitted} more people will be at the next event`);
+  //     }
+
+  //     if (goingToChruch >= 1) {
+  //       info(`Unfortunately, we had to turn away ${goingToChruch} people`);
+  //     }
+  //   });
+  // });
 };
 
 document.addEventListener('DOMContentLoaded', startApp);

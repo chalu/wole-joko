@@ -2,6 +2,8 @@
 
 A fun little app that mimics admitting people into an event hall and getting them well seated!
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/491cac0edb794c37a66f978a8a3cd45f)](https://www.codacy.com/manual/chalu/wole-joko/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chalu/wole-joko&amp;utm_campaign=Badge_Grade)
+
 This mini-app was created as a personal challenge to build a functional "version" of what I was asked to code (live) during an engineering manager interview. The specs were as follows: 
 
 *   A random number of people will show up for the event on a given day

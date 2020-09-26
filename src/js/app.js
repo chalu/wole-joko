@@ -107,23 +107,23 @@ const startApp = () => {
   });
 
 
-  // getAuditoriumReady().then(() => {
-  //   info('Event Started');
+  getAuditoriumReady().then(() => {
+    info('Event Started');
 
-  //   const startedAt = Date.now();
-  //   admitPeople().then(() => {
-  //     const elapsedTime = (Date.now() - startedAt) / (1000 * 60);
-  //     info(`We got all ${admitted} seated in roughly ${elapsedTime.toFixed(2)} minutes!`);
+    const startedAt = Date.now();
+    admitPeople().then(() => {
+      const elapsedTime = (Date.now() - startedAt) / (1000 * 60);
+      info(`We got all ${admitted} seated in roughly ${elapsedTime.toFixed(2)} minutes!`);
 
-  //     if (admitted < CAPACITY) {
-  //       info(`Hopefully, ${CAPACITY - admitted} more people will be at the next event`);
-  //     }
+      if (admitted < CAPACITY) {
+        info(`Hopefully, ${CAPACITY - admitted} more people will be at the next event`);
+      }
 
-  //     if (goingToChruch >= 1) {
-  //       info(`Unfortunately, we had to turn away ${goingToChruch} people`);
-  //     }
-  //   });
-  // });
+      if (goingToChruch >= 1) {
+        info(`Unfortunately, we had to turn away ${goingToChruch} people`);
+      }
+    });
+  });
 };
 
 document.addEventListener('DOMContentLoaded', startApp);

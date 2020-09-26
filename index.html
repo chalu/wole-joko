@@ -75,7 +75,6 @@
         margin: 3em 1em 1em 1em;
         width: calc(100vw - 2em);
         max-width: 1140px;
-        min-height: 1000px;
         background: rgba(0, 0, 0, 0.25);
         display: flex;
         border-radius: 10px;
@@ -85,7 +84,7 @@
 
       [data-seating-area] [data-seating-side] {
         flex: 1;
-        margin-top: -5em;
+        margin-top: -2.5em;
         transform: scale(0.8);
       }
 
@@ -100,8 +99,13 @@
         justify-content: flex-start;
       }
 
+      [data-seating-side][data-rows-left] .row {
+        transform: rotate(3deg);
+      }
+
       [data-seating-side][data-rows-right] .row {
         flex-direction: row-reverse;
+        transform: rotate(-3deg);
       }
 
       [data-seating-side] .row:last-child {

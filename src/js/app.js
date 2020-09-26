@@ -6,7 +6,7 @@ import {
 
 let ushers;
 let admitted = 0;
-let goingToChruch = 0;
+let goingToEvent = 0;
 const { info } = logs;
 
 const CAPACITY = 8000;
@@ -52,7 +52,7 @@ const enterAuditorium = async (people) => {
 const getNextNumberToAdmit = () => {
   const nextTotal = admitted + ADMIT_PER_TIME;
   const nextBatchSize = nextTotal <= CAPACITY ? ADMIT_PER_TIME : CAPACITY - admitted;
-  goingToChruch -= nextBatchSize;
+  goingToEvent -= nextBatchSize;
   return nextBatchSize;
 };
 
@@ -139,8 +139,8 @@ const getAuditoriumReady = async () => {
 };
 
 const startApp = () => {
-  goingToChruch = random({ max: CAPACITY, min: 250 });
-  info(`We hear ~${(goingToChruch / 1000).toFixed(1)}k people are showing up for today's event ...`);
+  goingToEvent = random({ max: CAPACITY, min: 250 });
+  info(`We hear ~${(goingToEvent / 1000).toFixed(1)}k people are showing up for today's event ...`);
 
   info('FYI, the hall has the following configuration:');
   /* eslint-disable no-console */
@@ -160,8 +160,8 @@ const startApp = () => {
         info(`Hopefully, ${CAPACITY - admitted} more people will be at the next event`);
       }
 
-      if (goingToChruch >= 1) {
-        info(`Unfortunately, we had to turn away ${goingToChruch} people`);
+      if (goingToEvent >= 1) {
+        info(`Unfortunately, we had to turn away ${goingToEvent} people`);
       }
     });
   });

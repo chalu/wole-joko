@@ -1,5 +1,11 @@
 /* eslint-disable no-console */
 
+/**
+ * Promise-ified shorthand for requestAnimationframe
+ * @param {Object} opts contains `waitUntil` that indicates
+ * any initial wait time before getting the next frame
+ * @returns {Promise} a promise that resolve when the then frame is available
+ */
 export const rAF = (opts = {}) => {
   const { waitUntil } = opts;
   return new Promise((resolve) => {
@@ -13,16 +19,56 @@ export const rAF = (opts = {}) => {
   });
 };
 
+/**
+ * Schedules a number of ui/render tasks (no-arg functions)
+ * to be called sequentially by requestAnimationFrame.
+ * Useful when you want to do a large number of ui/dom operations
+ * and need to keep the operations performant.
+ *
+ * @param  {Function} fns variable number of functions
+ * representing the ui/render tasks to queue with requestAnimationFrame
+ * @returns {Promise} a promise that resolves after executing all tasks in the queue
+ */
 export const rAFQueue = (...fns) => fns.reduce(async (frame, uiTask) => {
   await frame;
   uiTask();
   return rAF();
 }, rAF());
 
+/**
+ * Returns the int portion of the given id
+ * @param {String} id id of a person in the system
+ * @returns {Number}
+ */
 export const intFromId = (id) => id.substring(id.indexOf('-') + 1);
+
+/**
+ * Shorthand for document.querySelector
+ * @returns {Node}
+ */
 export const select = document.querySelector.bind(document);
+
+/**
+ * Shorthand for document.querySelectorAll
+ * @returns {NodeList}
+ */
 export const selectAll = document.querySelectorAll.bind(document);
 
+/**
+ * A special interator/iterable that allows you to
+ * loop over the items of an array in pairs
+ * ```
+ * const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+ * for(let pair of pairsFrom(list)) {
+ *  // pair will be [1, 2], [3, 4] e.t.c
+ * }
+ * ```
+ *
+ * We used this to provide a pair of attendees to an usher at a given time
+ *
+ * @param {array} array the array to iterate over
+ * @returns {Iterator}
+ */
 export const pairsFrom = (array = []) => {
   const iterable = {
     from: -1,
@@ -45,9 +91,30 @@ export const pairsFrom = (array = []) => {
   return iterable;
 };
 
+/**
+ * Determines if a number is even (returns true) or not (returns false)
+ * @param {Number} num number to check
+ * @returns {Boolean}
+ */
 export const isEven = (num) => num % 2 === 0;
+
+/**
+ * Generates a random number somewhere between min and max properties
+ * of the parameter. I basically lifted this from Stackoverflow :)
+ *
+ * @param {Object} param0 object with `min` and `max` property indicating rough
+ * range of the number to generate
+ * @returns {Number}
+ */
 export const random = ({ max, min = 1 }) => parseInt(Math.floor(Math.random() * max) + min, 10);
 
+/**
+ * A handly util for better formatted console.log statements
+ * @param {String} realm Designates a sub-system of this app emitting the log messages.
+ * Imagine logs from the UI vs logs from a service worker. These are seen as diffrent realms!
+ * @returns {Object} an object with `info`, `error`, and `warn` fields used to handle 
+ * that specific kind of log messages
+ */
 const logr = (realm) => {
   const style = 'color:#fff;display:block';
   return {

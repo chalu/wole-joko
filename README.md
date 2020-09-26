@@ -10,11 +10,11 @@ This mini-app was created as a personal challenge to build a functional "version
 
 *   A random number of people will show up for the event on a given day
 
-*   The (church) hall has a max capacity of **8000** seats in **500** rows. Each row has **16** seats and there are **250** rows on either side of the hall. The inner ends of the rows are filled first. At full capacity, stop admitting people into the hall
+*   The hall has a max capacity of **8000** seats in **500** rows. Each row has **16** seats and there are **250** rows on either side of the hall. The inner ends of the rows are filled first. At full capacity, stop admitting people into the hall
 
-*   Only a batch of 16 people can enter the hall at a time. A new batch is admitted only after the previous batch is seated
+*   Only a batch of 16 people can enter the hall at a time. A new batch is admitted only after the previous batch is completely seated
 
-*   When a given batch is in the hall, people are ushered into seats in the 2 sides of the hall concurrently
+*   When a given batch is in the hall, people are ushered into seats in the 2 sides of the hall, concurrently
 
 *   To make it more life-like and to pevent rush, the app should simulate a random delay for everyone getting seated, and the ushers directing them to their seats
 

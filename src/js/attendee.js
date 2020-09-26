@@ -5,12 +5,27 @@ import {
 
 const { info } = logs;
 
+/**
+ * An object represnting an attendee in the system
+ */
 class Attendee extends Person {
+  /**
+   * Creates a new attendee object in the system, and gives
+   * it an id formatted as 'Attendee-N', where N is their id
+   * @param {String} id the unique user id for this attendee
+   */
   constructor(id) {
     super(`Attendee-${id}`);
   }
 
-  async goGetSeated({ hallSide, rowIndex, seatNum }) {
+  /**
+   * Gets the attendee seated in the seat specified by `whereToSeat`
+   * @param {Object} whereToSeat object with `hallSide`, `rowIndex`, and `seatNum`
+   * properties specifying where this attendee is to seat
+   * @returns {Promise}
+   */
+  async goGetSeated(whereToSeat) {
+    const { hallSide, rowIndex, seatNum } = whereToSeat;
     info(`${this} is getting seated ...`);
 
     // start getting seated

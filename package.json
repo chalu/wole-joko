@@ -1,0 +1,30 @@
+{
+  "name": "wole-joko",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "eslint \"src/**/*.js\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chalu/wole-joko.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Charles Odili",
+    "email": "chaluwa@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chalu/wole-joko/issues"
+  },
+  "homepage": "https://github.com/chalu/wole-joko#readme",
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}

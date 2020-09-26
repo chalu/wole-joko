@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Wọlé Jókò is a fun little app for admitting people into an event space and getting them well seated"
+    />
+    <title>Wọlé Jókò</title>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        background: #242333;
+      }
+
+      nav {
+        background: rgba(0, 0, 0, 0.25);
+        min-height: 36px;
+        width: 100%;
+      }
+
+      [data-auditorium] {
+        width: 100%;
+        height: calc(100vh - 36px);
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      [data-stage] {
+        height: 130px;
+        min-width: 200px;
+        margin: 0 auto;
+        box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        perspective: 90px;
+        margin-top: -50px;
+      }
+
+      [data-stage] img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        transform: rotateX(-45deg) scale(0.35);
+      }
+
+      [data-seating-area] {
+        margin: 3em 1em 1em 1em;
+        width: calc(100vw - 2em);
+        max-width: 1500px;
+        min-height: 1000px;
+        background: rgba(0, 0, 0, 0.25);
+        display: flex;
+        border-radius: 10px;
+        overflow: scroll;
+        justify-content: space-around;
+      }
+
+      [data-seating-area] [data-seating-side] {
+        flex: 1;
+        margin-top: -5em;
+        transform: scale(0.8);
+      }
+
+      [data-seating-side] .row {
+        width: 100%;
+        max-width: 580px;
+        height: 2px;
+        margin-top: 20px;
+        border-bottom: 2px solid #444;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      [data-seating-side][data-rows-right] .row {
+        flex-direction: row-reverse;
+      }
+
+      [data-seating-side] .row:last-child {
+        margin-bottom: 5em;
+      }
+
+      [data-seating-side] .row .seat {
+        width: 12px;
+        height: 12px;
+        margin: 0 12px;
+        margin-top: -12px;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        background: #6feaf6;
+      }
+
+      [data-rows-left] .row .seat:nth-of-type(1) {
+        margin-left: 0.8em;
+      }
+
+      [data-rows-right] .row .seat:nth-of-type(1) {
+        margin-right: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav></nav>
+    <div data-auditorium>
+      <div data-stage>
+        <img src="./src/images/podium.png" alt="podium" />
+      </div>
+      <div data-seating-area>
+        <div data-rows-left data-seating-side></div>
+        <div data-rows-right data-seating-side></div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/js/app.js"></script>
+  </body>
+</html>

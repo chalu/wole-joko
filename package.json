@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint \"src/**/*.js\" --fix"
+    "lint": "eslint \"src/**/*.js\" --fix",
+    "build-docs": "documentation build src/js/** -f html -o docs"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/chalu/wole-joko#readme",
   "devDependencies": {
+    "documentation": "^13.0.2",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0"

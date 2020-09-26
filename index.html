@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Wọlé Jókò is a fun little app for admitting people into an event space and getting them well seated"
+      content="Wọlé Jókò is a fun little app built by Odili Charles Opute for admitting people into an event space and getting them well seated!"
     />
     <title>Wọlé Jókò</title>
 
@@ -25,8 +25,20 @@
 
       nav {
         background: rgba(0, 0, 0, 0.25);
-        min-height: 36px;
+        max-height: 36px;
+        padding: 0 1.5em;
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      nav .item {
+        display: flex;
+        align-items: center;
+      }
+
+      nav [logo] {
+        height: 30px;
       }
 
       [data-auditorium] {
@@ -116,7 +128,11 @@
     </style>
   </head>
   <body>
-    <nav></nav>
+    <nav>
+      <a href="/" class="item">
+        <img src="./src/images/wole-joko-logo.png" alt="Wọlé Jókò" logo />
+      </a>
+    </nav>
     <div data-auditorium>
       <div data-stage>
         <img src="./src/images/podium.png" alt="podium" />

@@ -112,7 +112,7 @@ export const random = ({ max, min = 1 }) => parseInt(Math.floor(Math.random() * 
  * A handly util for better formatted console.log statements
  * @param {String} realm Designates a sub-system of this app emitting the log messages.
  * Imagine logs from the UI vs logs from a service worker. These are seen as diffrent realms!
- * @returns {Object} an object with `info`, `error`, and `warn` fields used to handle 
+ * @returns {Object} an object with `info`, `error`, and `warn` fields used to handle
  * that specific kind of log messages
  */
 const logr = (realm) => {

@@ -3,29 +3,47 @@ import { isEven, intFromId, logs } from './utils.js';
 
 const { info } = logs;
 
+/**
+ * An object representing an usher in the system
+ */
 class Usher extends Person {
-  constructor(id, { capacity, seatsPerRow, totalRows }) {
+  /**
+   * Creates a new usher object in the system, and gives
+   * it an id formatted as 'Usher-N', where N is their id
+   * @param {String} id the unique user id for this usher
+   * @param {Object} hallSpec an object with represnting the specs
+   * of the event hall
+   */
+  constructor(id, hallSpec) {
     super(`Usher-${id}`);
-    this.seatingCapacity = capacity;
+
+    const { hallCapacity, seatsPerRow, totalRows } = hallSpec;
+    this.hallCapacity = hallCapacity;
     this.seatsPerRow = seatsPerRow;
     this.totalRows = totalRows;
   }
 
+  /**
+   * Places a pair of attendees to their seats
+   * ```
+   * Placement Formula
+   * ======================
+   * if we have Attendee-17
+   * side = 17 % 2 === 0 ? 'right' : 'left';
+   * so, side will be 'left'
+   * seatNum = Math.floor(17 / 2)
+   * so, seatNum will be 9
+   * rowIndex = Math.floor(9 / 16)
+   * so, rowIndex will be 0
+   * i.e Attendee-17 will occupy seat-9 in row 0 on the left side of the hall!
+   * ```
+   *
+   * @param {Attendee} attendees a variable list of attendees. 2 ideally.
+   * @returns {Promise}
+   */
   async usherToSeat(...attendees) {
     const gettingSeated = attendees.reduce((seatingTasks, attendee) => {
       info(`${this} handling ${attendee}`);
-
-      /** placement formula
-       * =========================
-       * if idNum is 17
-       * side = 17 % 2 === 0 ? 'right' : 'left';
-       * so, side will be 'left'
-       * seatNum = Math.floor(17 / 2)
-       * so, seatNum will be 9
-       * rowIndex = Math.floor(9 / 16)
-       * so, rowIndex will be 0
-       * i.e attendee-17 will occupy seat-9 in row 0 on the left side
-       */
 
       const idNum = intFromId(attendee.getId());
       const hallSide = isEven(idNum) ? 'right' : 'left';

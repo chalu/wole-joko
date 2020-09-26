@@ -99,13 +99,8 @@
         justify-content: flex-start;
       }
 
-      [data-seating-side][data-rows-left] .row {
-        transform: rotate(3deg);
-      }
-
       [data-seating-side][data-rows-right] .row {
         flex-direction: row-reverse;
-        transform: rotate(-3deg);
       }
 
       [data-seating-side] .row:last-child {
@@ -128,6 +123,16 @@
 
       [data-rows-right] .row .seat:nth-of-type(1) {
         margin-right: 0.8em;
+      }
+
+      [data-rows-left] .row,
+      [data-rows-left] .row .seat {
+        transform: rotate(3deg);
+      }
+
+      [data-rows-right] .row,
+      [data-rows-right] .row .seat {
+        transform: rotate(-3deg);
       }
     </style>
   </head>

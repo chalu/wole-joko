@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 /**
- * Promise-ified shorthand for requestAnimationframe
+ * Promise-ified shorthand for requestAnimationFrame
  * @param {Object} opts contains `waitUntil` that indicates
  * any initial wait time before getting the next frame
  * @returns {Promise} a promise that resolve when the then frame is available
@@ -25,7 +25,7 @@ export const rAF = (opts = {}) => {
  * Useful when you want to do a large number of ui/dom operations
  * and need to keep the operations performant.
  *
- * @param  {Function} fns variable number of functions
+ * @param {Function} fns variable number of functions
  * representing the ui/render tasks to queue with requestAnimationFrame
  * @returns {Promise} a promise that resolves after executing all tasks in the queue
  */
@@ -55,8 +55,9 @@ export const select = document.querySelector.bind(document);
 export const selectAll = document.querySelectorAll.bind(document);
 
 /**
- * A special interator/iterable that allows you to
- * loop over the items of an array in pairs
+ * A special Iterable that allows you to
+ * go over the items of an array in pairs
+ * E.g :
  * ```
  * const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
  * for(let pair of pairsFrom(list)) {
@@ -64,8 +65,7 @@ export const selectAll = document.querySelectorAll.bind(document);
  * }
  * ```
  *
- * We used this to provide a pair of attendees to an usher at a given time
- *
+ * We used this to provide a pair of attendees to an usher at once
  * @param {array} array the array to iterate over
  * @returns {Iterator}
  */

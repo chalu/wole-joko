@@ -68,7 +68,7 @@ const personsToEnter = () => (admitted >= CAPACITY ? 0 : getNextNumberToAdmit())
  * number of people into the event hall
  * @returns {Promise}
  */
-const admitPeople = async () => {
+export const admitPeople = async () => {
   const people = personsToEnter();
   if (people <= 0) return Promise.resolve();
 
@@ -138,33 +138,36 @@ const getAuditoriumReady = async () => {
   return arrangeSeating();
 };
 
-const startApp = () => {
+export const init = async () => {
   goingToEvent = random({ max: CAPACITY, min: 250 });
   info(`We hear ~${(goingToEvent / 1000).toFixed(1)}k people are showing up for today's event ...`);
 
   info('FYI, the hall has the following configuration:');
   /* eslint-disable no-console */
   console.table({
-    CAPACITY, TOTAL_ROWS, SEATS_PER_ROW, ADMIT_PER_TIME
+    CAPACITY,
+    TOTAL_ROWS,
+    SEATS_PER_ROW,
+    ADMIT_PER_TIME
   });
 
-  getAuditoriumReady().then(() => {
-    info('Event Started');
-
-    const startedAt = Date.now();
-    admitPeople().then(() => {
-      const elapsedTime = (Date.now() - startedAt) / (1000 * 60);
-      info(`We got all ${admitted} seated in roughly ${elapsedTime.toFixed(2)} minutes!`);
-
-      if (admitted < CAPACITY) {
-        info(`Hopefully, ${CAPACITY - admitted} more people will be at the next event`);
-      }
-
-      if (goingToEvent >= 1) {
-        info(`Unfortunately, we had to turn away ${goingToEvent} people`);
-      }
-    });
-  });
+  return getAuditoriumReady();
 };
 
-document.addEventListener('DOMContentLoaded', startApp);
+export const doorsOpen = () => {
+  info('Event Started');
+
+  const startedAt = Date.now();
+  admitPeople().then(() => {
+    const elapsedTime = (Date.now() - startedAt) / (1000 * 60);
+    info(`We got all ${admitted} seated in roughly ${elapsedTime.toFixed(2)} minutes!`);
+
+    if (admitted < CAPACITY) {
+      info(`Hopefully, ${CAPACITY - admitted} more people will be at the next event`);
+    }
+
+    if (goingToEvent >= 1) {
+      info(`Unfortunately, we had to turn away ${goingToEvent} people`);
+    }
+  });
+};

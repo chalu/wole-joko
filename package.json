@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "lint": "eslint \"src/**/*.js\" --fix",
+    "build": "NODE_ENV=production && parcel build index.html --experimental-scope-hoisting --no-source-maps",
     "build-docs": "documentation build src/js/** -f html -o docs"
   },
   "repository": {
@@ -24,7 +25,8 @@
     "documentation": "^13.0.2",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "parcel-bundler": "^1.12.4"
   },
   "browserslist": [
     "last 2 Chrome versions"

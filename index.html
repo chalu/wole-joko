@@ -24,6 +24,7 @@
         display: flex;
         flex-direction: column;
         background: #242333;
+        overflow-x: clip;
       }
 
       nav {
@@ -64,14 +65,15 @@
         justify-content: center;
         align-items: end;
         perspective: 90px;
-        margin-top: -50px;
+        margin-top: -20px;
       }
 
       [data-stage] img {
         width: 200px;
         height: 200px;
         display: block;
-        transform: rotateX(-45deg) scale(0.35);
+        margin-top: auto;
+        transform: rotateX(-45deg) scale(0.45);
       }
 
       [data-seating-area] {
@@ -82,6 +84,7 @@
         display: flex;
         border-radius: 10px;
         overflow: scroll;
+        overflow-x: clip;
         justify-content: space-around;
       }
 
@@ -159,6 +162,10 @@
         <div data-rows-right data-seating-side></div>
       </div>
     </div>
+
+    <audio loop autoplay>
+      <source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-31172/zapsplat_public_places_cathedral_st_marys_sydney_cbd_internal_amb_traffic_outside_people_organist_tuning_sydney_australia002_32683.mp3" type="audio/mp3">
+    </audio>
 
     <script type="module" src="./src/js/index.js"></script>
   </body>

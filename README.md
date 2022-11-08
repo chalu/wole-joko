@@ -4,7 +4,7 @@ A fun little app that mimics admitting people into an event hall and getting the
 
 [See it live!](https://wole-joko.netlify.app/). Also, there's some [code documentation here](https://chalu.github.io/wole-joko/)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/491cac0edb794c37a66f978a8a3cd45f)](https://www.codacy.com/manual/chalu/wole-joko/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chalu/wole-joko&amp;utm_campaign=Badge_Grade) [![Netlify Status](https://api.netlify.com/api/v1/badges/1cd7dbc7-4c42-448b-a1bc-5125142a7686/deploy-status)](https://app.netlify.com/sites/wole-joko/deploys) 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9dd323602ac84341b88935ae4e974cb8)](https://www.codacy.com/gh/chalu/wole-joko/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chalu/wole-joko&amp;utm_campaign=Badge_Grade) [![Netlify Status](https://api.netlify.com/api/v1/badges/1cd7dbc7-4c42-448b-a1bc-5125142a7686/deploy-status)](https://app.netlify.com/sites/wole-joko/deploys) 
 
 ---
 

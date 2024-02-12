@@ -134,7 +134,7 @@ export const logs = logr('App');
 
 const DRESS_COLORS = [
   'lightblue', 'lighterblue', 'mediumblue', 'deeperblue', 'orange',
-  'purple', 'darkerorange', 'darkersoftorange'
+  'purple', 'darkerorange', 'darkersoftorange', 'white', 'black'
 ];
 export const getRandomDressColorFromPallate = () => {
   const index = Math.floor(Math.random() * DRESS_COLORS.length);

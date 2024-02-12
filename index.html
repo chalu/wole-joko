@@ -120,7 +120,58 @@
         margin-top: -12px;
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
+        background: #ccc;
+      }
+
+      [data-seating-side] .seat .attendee {
+        width: 8px;
+        height: 8px;
+        margin: 2px;
+        border-radius: 100%;
+      }
+
+      .row .seat .attendee.dress-white {
+        background: #f1f1f1;
+      }
+
+      .row .seat .attendee.dress-black {
+        background: #333;
+      }
+
+      .row .seat .attendee.dress-maroon {
+        background: maroon;
+      }
+
+      .row .seat .attendee.dress-lightblue {
         background: #6feaf6;
+      }
+
+      .row .seat .attendee.dress-lighterblue {
+        background: #6fd5f6;
+      }
+
+      .row .seat .attendee.dress-mediumblue {
+        background: #6fc1f6;
+      }
+
+      .row .seat .attendee.dress-deeperblue {
+        background: #6fa0e6;
+      }
+
+      .row .seat .attendee.dress-orange {
+        background: #f6945a;
+      }
+
+      .row .seat .attendee.dress-purple {
+        background: #9f5af6;
+      }
+
+      .row .seat .attendee.dress-darkerorange {
+        background: #f67c41;
+      }
+
+      .row .seat .attendee.dress-darkersoftorange {
+        background: #f69841;
       }
 
       [data-rows-left] .row .seat:nth-of-type(1) {
@@ -163,8 +214,8 @@
       </div>
     </div>
 
-    <audio loop autoplay>
-      <source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-31172/zapsplat_public_places_cathedral_st_marys_sydney_cbd_internal_amb_traffic_outside_people_organist_tuning_sydney_australia002_32683.mp3" type="audio/mp3">
+    <audio preload="auto" loop>
+      <source src="cathedral_st_marys_sydney_cbd.mp3" type="audio/mp3">
     </audio>
 
     <script type="module" src="./src/js/index.js"></script>

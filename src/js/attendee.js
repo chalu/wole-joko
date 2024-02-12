@@ -1,6 +1,6 @@
 import Person from './person.js';
 import {
-  logs, rAF, select, intFromId
+  logs, rAF, select, intFromId, getRandomDressColorFromPallate
 } from './utils.js';
 
 const { info } = logs;
@@ -36,8 +36,13 @@ class Attendee extends Person {
       const row = select(`[data-rows-${hallSide}] [data-row-${rowIndex}]`);
       const seating = document.createElement('div');
       seating.classList.add('seat', `seat-${seatNum}`);
-      seating.setAttribute(`data-seating-attendee-${idNum}`, '');
+      // seating.setAttribute(`data-seating-attendee-${idNum}`, '');
       row.appendChild(seating);
+
+      const attendee = document.createElement('div');
+      attendee.classList.add('attendee', `dress-${getRandomDressColorFromPallate()}`);
+      attendee.setAttribute(`data-seating-attendee-${idNum}`, '');
+      seating.appendChild(attendee);
     });
 
     // make sure, then signal you are seated!

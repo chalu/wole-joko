@@ -1,6 +1,8 @@
 <img src="./src/images/wole-joko-logo.png" />
 
-A fun little pure HTML/Javascript app that mimics admitting people into an event hall and getting them well seated. 
+A fun little pure HTML/Javascript app that mimics admitting 
+people into an event hall and getting them well seated. 
+
 
 ![the even hall](./auditorium.png "the event hall")
 ![Chrome dev console](./chrome-dev-console.png "custom console logs")
